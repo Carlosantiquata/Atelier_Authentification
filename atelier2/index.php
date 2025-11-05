@@ -7,7 +7,7 @@ session_start();
 // Dans le cas contraire il devra s'identifier.
 if (isset($_COOKIE['authToken'])) {
     header('Location: page_admin.php');
-    exit();
+    exit();}
 
 
 
