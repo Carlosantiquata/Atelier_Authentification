@@ -2,6 +2,13 @@
 // Démarre la session
 session_start();
 
+//verifier visite site 
+if (!isset($_SESSION['visites'])) {
+    $_SESSION['visites'] = 1;
+} else {
+    $_SESSION['visites']++;
+}
+
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     header('Location: page_admin.php'); // Si l'utilisateur s'est déjà connecté alors il sera automatiquement redirigé vers la page protected.php
@@ -45,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h1>Atelier authentification par Session</h1>
+    <p>Vous avez visité cette page d'accueil <?php echo $_SESSION['visites']; ?> fois.</p>
     <h3>La page <a href="page_admin.php">page_admin.php</a> de cet atelier 3 est inaccéssible tant que vous ne vous serez pas connecté avec le login 'admin' et mot de passe 'secret'</h3>
     <form method="POST" action="">
         <label for="username">Nom d'utilisateur :</label>
