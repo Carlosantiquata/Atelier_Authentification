@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Rediriger vers la page protégée
         header('Location: page_user.php');
-        exit();
+        exit();}
     else {
         $error = "Nom d'utilisateur ou mot de passe incorrect.";
     }
